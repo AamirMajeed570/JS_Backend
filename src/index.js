@@ -5,8 +5,8 @@ dotenv.config()
 // ConnectDB is returning a Promise
 connectDB()
 .then(()=>{
-    app.listen(process.env.PORT || 3000,()=>{
-        console.log(`Server is Listening at http://localhost:3000`);
+    app.listen(process.env.PORT,()=>{
+        console.log(`Server is Listening at http://localhost:${process.env.PORT}`);
     } )
 })
 .catch((error)=>{

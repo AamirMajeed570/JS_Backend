@@ -10,5 +10,13 @@ app.use(express.json({limit:"16kb"}))
 app.use(express.urlencoded({extended:true,limit:"16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
+
+// Import All The Routes Here
+import userRouter from './routes/user.routes.js'
+
+// Routes decleration
+app.use("/api/v1/users",userRouter);
+
+// http://localhost:3000/api/v1/users/register
 export {app};
 // cookieParser function :-> Server has the access to accept cookies from a client  
