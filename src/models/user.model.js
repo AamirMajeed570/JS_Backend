@@ -61,7 +61,7 @@ userSchema.methods.isPasswordCorrect = async function(password){
     // Match the Password 
     return await bcrypt.compare(password,this.password);
 }
-
+// Access Tokens Are usually shortlived
 userSchema.methods.generateAccessToken = function(){
     return jwt.sign(
         {
@@ -76,6 +76,7 @@ userSchema.methods.generateAccessToken = function(){
         }
     )
 }
+// Refresh Tokens Are usually longlived
 userSchema.methods.generateRefreshToken = function(){
     return jwt.sign(
         {
